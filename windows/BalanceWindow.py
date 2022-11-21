@@ -18,7 +18,7 @@ class BalanceWindow(Window):
                                             line_color=(.10, .44, .10, 1),
                                             max_lines=30)
         continuation_button = Button(text="Продолжить", background_color=(0.53, 0.71, .53, .6), size_hint=(0.45, 0.2),
-                            on_press=lambda x: controller.set_present_screen_name("ContinuationWindow"))
+                            on_press=lambda x: controller.set_present_screen_name("OperationCompletedWindow"))
 
         balance_amount_layout.add_widget(self.balance_amount_label)
         self.controlled_layout.add_widget(balance_amount_layout)

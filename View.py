@@ -34,9 +34,10 @@ class View(MDApp):
         super(View, self).__init__()
         self.model = model
         self.controller = controller
+        self.controller.set_view(self)
         self.screens = ScreenManager()
-        self.screens.add_widget(StartWindow(name="StartWindow", controller=self.controller))
         self.screens.add_widget(Window(name="Window", controller=self.controller))
+        self.screens.add_widget(StartWindow(name="StartWindow", controller=self.controller))
         self.screens.add_widget(LoginWindow(name="LoginWindow", controller=self.controller))
         self.screens.add_widget(BalanceWindow(name="BalanceWindow", controller=self.controller))
         self.screens.add_widget(
@@ -53,6 +54,8 @@ class View(MDApp):
 
         self.screens.add_widget(WarningWindow(name="WarningWindow", controller=self.controller))
         self.screens.add_widget(ExitWindow(name="ExitWindow", controller=self.controller))
+
+        self.screens.current = "StartWindow"
 
     def set_present_screen_name(self, present_screen_name):
         if present_screen_name == "Stop":
